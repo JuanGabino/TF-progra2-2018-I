@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Proyeccion De Impuesto a la Renta</title>	
+  <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+   .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+   }
+  </style>
+</head>
+<body style="background-color: #FBFCFC;">
+    <header></header>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+     <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/person/new">Inicio</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Promociones</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Tasa de Descuento</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Lista de Compradores</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="/comprador/tablas">Tablas</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Contactos</a></li>
+        </ul>
+      </div>
+     </nav>
+    </div>
+	<div class="container">
+	    <br>
+		<h2>Ingreso de Datos</h2>
+		<br>
+		<form class="form-horizontal"  id="form1" action="#" th:action="@{/person/new}" th:object="${person}" method="post">
+		
+			<div class="form-group">
+			   <label class="control-label col-md-2" for="txtDni">DNI</label>
+			   <div class="col-md-10">
+			     <input type="number" class="form-control" th:field="*{dni}" id="txtDni">
+			     <span th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">ERROR</span>
+			   </div>
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label col-md-2" for="txtNom">Nombre</label>
+			   <div class="col-md-10">
+			     <input type="text" class="form-control" th:field="*{nombre}" id="txtNom">
+			     <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">ERROR</span>
+			   </div>
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label col-md-2" for="txtSal">Salario</label>
+			   <div class="col-md-10">
+			     <input type="text" class="form-control" th:field="*{salario}" id="txtSal">
+			     <span th:if="${#fields.hasErrors('salario')}" th:errors="*{salario}">ERROR</span>
+			   </div>
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label col-md-2">Tipo</label>
+			   <div class="col-md-10">
+			     <label class="radio-inline"><input type="radio" th:field="*{tipo}" th:value="Dependiente" name="optradio">Dependiente</label>
+			     <label class="radio-inline"><input type="radio" th:field="*{tipo}" th:value="Independiente" name="optradio">Independiente</label>
+			   </div>
+			   <span th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">ERROR</span>
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label col-md-2" for="txtUbicacion">Ubicacion</label>
+			   <div class="col-md-10">
+			     <select th:field="*{ubicacion}" id="selectUbicacion" class="form-control form-control-lg">
+				    <option th:value="LimayCallao">Lima y Callao</option>
+				    <option th:value="Amazonas">Amazonas</option>
+				    <option th:value="Ancash">Ancash</option>
+				    <option th:value="Apurimac">Apurimac</option>
+				    <option th:value="Arequipa">Arequipa</option>
+				    <option th:value="Ayacucho">Ayacucho</option>
+				    <option th:value="Cajamarca">Cajamarca</option>
+				    <option th:value="Cuzco">Cuzco</option>
+				    <option th:value="Huancavelica">Huancavelica</option>
+				    <option th:value="Huanuco">Huanuco</option>
+				    <option th:value="Ica">Ica</option>
+				    <option th:value="Junin">Junin</option>
+				    <option th:value="LaLibertad">La Libertad</option>
+				    <option th:value="Lambayeque">Lambayeque</option>
+				    <option th:value="Loreto">Loreto</option>
+				    <option th:value="MadredeDios">Madre De Dios</option>
+				    <option th:value="Moquegua">Moquegua</option>
+				    <option th:value="Pasco">Pasco</option>
+				    <option th:value="Piura">Piura</option>
+				    <option th:value="Puno">Puno</option>
+				    <option th:value="SanMartin">San Martin</option>
+				    <option th:value="Tacna">Tacna</option>
+				    <option th:value="Tumbes">Tumbes</option>
+				    <option th:value="Ucayali">Ucayali</option>
+			     </select>
+			     <span th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}">ERROR</span>
+			   </div>
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label col-md-2" for="txtInteres">Intereses</label>
+			   <div class="col-md-4">
+			     <input type="text" class="form-control" th:field="*{hobbie}" id="txtInteres">
+			     <span th:if="${#fields.hasErrors('hobbie')}" th:errors="*{hobbie}">ERROR</span>
+			   </div>
+			   <label class="control-label col-md-2" for="txtGenero">Genero</label>
+			   <div class="col-md-4">
+			     <select th:field="*{genero}" id="selectGenero" class="form-control form-control-lg">
+				    <option th:value="Rock">Rock</option>
+				    <option th:value="Electronica">Electronica</option>
+				    <option th:value="Pop">Pop</option>
+				    <option th:value="HeavyMetal">HeavyMetal</option>
+				    <option th:value="Reggae">Reggae</option>
+			     </select>
+			     <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}">ERROR</span>
+			   </div>
+			</div>
+			
+			<div class="form-group">
+			   <label class="control-label col-md-2" for="txtEmail">Correo</label>
+			   <div class="col-md-10">
+			     <input type="text" class="form-control" th:field="*{email}" id="txtEmail">
+			     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">ERROR</span>
+			   </div>
+			</div>
+			
+			<br>
+			<br>
+			<br>
+			<div class="form-group">
+				<div class="col-md-4">
+					<input type="submit" value="Calcular" class="btn btn-success btn-block">
+				</div>
+				<div class="col-md-4">
+					<input type="button" value="Limpiar" onclick="limpiar()" class="btn btn-danger btn-block">
+				</div>
+			</div>
+		</form>
+<!-- 		<div class="container"> -->
+<!-- 		 <div class="col-md-6"> -->
+<!-- 		  	<br /><a href="/person/lista"><input type="submit" value="Listar Persona" class="btn btn-info btn-block"></a> -->
+<!-- 		 </div> -->
+<!-- 		</div> -->
+	</div>
+<script>
+function limpiar()
+{
+	 document.getElementById("txtDni").value = "";
+	 document.getElementById("txtNom").value = "";
+	 document.getElementById("txtSal").value = "";
+	 document.getElementById("txtInteres").value = "";
+	 document.getElementById("selectGenero").value = "";
+	 document.getElementById("selectUbicacion").value = "";
+	 document.getElementById("txtEmail").value = "";	
+}
+</script>	
+</body>
+</html>

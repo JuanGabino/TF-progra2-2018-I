@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Calculo Impuesto a la Renta</title>	
+  <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #FBFCFC;">
+  <header></header>
+  <br>
+  <br>
+  <br>
+    <div class="container">
+     <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Inicio</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Promociones</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Tasa de Descuento</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Lista de Compradores</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="/comprador/tablas">Tablas</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Contactos</a></li>
+        </ul>
+      </div>
+     </nav>
+    </div>
+    <br>
+    <br>
+  <div class="container">
+	    <br>
+		<h2>Proyeccion Impuesto a la Renta</h2>
+		<br>
+		<form class="form-horizontal"  action="MAILTO:spuentey@gmail.com" th:action="@{/person/impuesto}" th:object="${person}" method="post">
+		
+			<div class="form-group">
+			   <div class="col-md-6">
+			        <label class="control-label col-md-2" for="txtDni">DNI</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{dni}" id="txtDni" readonly>
+				    </div>
+				</div>
+				<div class="col-md-6">
+					<label class="control-label col-md-2" for="txtNom">Nombre</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{nombre}" id="txtNom" readonly>
+				    </div>
+				</div>
+			</div>
+			<div class="form-group">
+			   <div class="col-md-6">
+			        <label class="control-label col-md-2" for="txtTipo">Tipo</label>
+			        <div class="col-md-10">
+					  <label class="radio-inline"><input type="radio" th:field="*{tipo}" th:value="Dependiente" name="optradio" disable>Dependiente</label>
+					  <label class="radio-inline"><input type="radio" th:field="*{tipo}" th:value="Independiente" name="optradio" disable>Independiente</label>
+				    </div>
+				</div>
+				<div class="col-md-6">
+					<label class="control-label col-md-2" for="txtSal">Salario</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{salario}" id="txtSalario" name="txtSalario" readonly>
+				    </div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			   <div class="col-md-6">
+			        <label class="control-label col-md-2" for="txtUbicacion">Ubicacion</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{ubicacion}" id="txtUbicacion" readonly>
+				    </div>
+				</div>
+				<div class="col-md-6">
+					<label class="control-label col-md-2" for="txtHobbie">Intereses</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{hobbie}" id="txtIntereses" readonly>
+				    </div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			   <div class="col-md-6">
+			        <label class="control-label col-md-2" for="txtCorreo">Correo</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{email}" id="txtEmail" readonly>
+				    </div>
+				</div>
+				<div class="col-md-6">
+					<label class="control-label col-md-2" for="txtHobbie">Ingreso Anual</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{ingAnual}" id="txtIngnual" readonly>
+				    </div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			   <div class="col-md-6">
+			        <label class="control-label col-md-2" for="txtRenta">Renta Anual</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{rentaNeta}" id="txtRenta" readonly>
+				    </div>
+				</div>
+				<div class="col-md-6">
+					<label class="control-label col-md-2" for="txtHobbie">Impuesto</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{impuesto}" id="txtImpuesto" readonly>
+				    </div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			   <div class="col-md-6">
+			        <label class="control-label col-md-2" for="txtInfocorp">Infocorp</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{infocorp}" id="txtInfocorp" readonly>
+				    </div>
+				</div>
+				<div class="col-md-6">
+				    <label class="control-label col-md-2" for="txtGenero">Genero</label>
+			        <div class="col-md-10">
+					  <input type="text" class="form-control" th:field="*{genero}" id="txtGenero" name="txtGenero" readonly>
+				    </div>
+				</div>
+			</div>
+			
+			<br>
+			<br>
+			<br>
+			<div class="form-group">
+				<div class="col-md-4">
+					<input type="submit" value="Guardar" class="btn btn-success btn-block">
+				</div>
+<!-- 				<div class="col-md-4"> -->
+<!-- 					<input type="button" value="Promociones" onclick="mostrarTabla()" class="btn btn-info btn-block"> -->
+<!-- 				</div> -->
+			</div>
+		</form>
+	</div>
+	<br>
+	<br>
+    
+</body>
+</html>

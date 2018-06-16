@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+	integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+	crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>Lista de Personas</title>
+</head>
+<body style="background-color: #FBFCFC;">
+    <header></header>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+     <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/person/new">Inicio</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Promociones</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Tasa de Descuento</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Lista de Compradores</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="/comprador/tablas">Tablas</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Contactos</a></li>
+        </ul>
+      </div>
+     </nav>
+    </div>
+    <br>
+    <br>
+    <br>
+	<div class="container">
+	    <br>
+	    <h2>Proyeccion Tributaria - Persona</h2>
+	    <br>
+	    <a href="/person/new"><input type="submit" value="AGREGAR PERSONA" class="btn btn-info"></a>
+	    <br>
+	    <br>
+		<table class="table" border="2">
+			<thead>
+				<tr bgcolor="#5DADE2">
+					<td>DNI</td>
+					<td>Nombre</td>
+					<td>Tipo</td>
+					<td>Salario</td>
+					<td>Infocorp</td>
+					<td>Ubicacion</td>
+					<td>Interes</td>
+					<td>Genero</td>
+					<td>Correo</td>
+					<td>Ingreso Anual</td>
+					<td>Renta Neta</td>
+					<td>Impuesto</td>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="person : ${persons}">
+					<td th:text="${person.dni}"></td>
+					<td th:text="${person.nombre}"></td>
+					<td th:text="${person.tipo}"></td>
+					<td th:text="${person.salario}"></td>
+					<td th:text="${person.infocorp}"></td>
+					<td th:text="${person.ubicacion}"></td>
+					<td th:text="${person.hobbie}"></td>
+					<td th:text="${person.genero}"></td>
+					<td th:text="${person.email}"></td>
+					<td th:text="${person.ingAnual}"></td>
+					<td th:text="${person.rentaNeta}"></td>
+					<td th:text="${person.impuesto}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>
